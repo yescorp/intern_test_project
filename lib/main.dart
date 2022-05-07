@@ -10,7 +10,7 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return StateInheritedWidget(
+    return AppDataWidget(
       child: MaterialApp(
         title: 'Intern Test Project',
         theme: ThemeData(
