@@ -30,35 +30,35 @@ class _BasketState extends State<Basket> {
 
     return Scaffold(
       appBar: AppBar(
-        title: Text("Wish Swish"),
+        title: const Text("Wish Swish"),
         bottom: PreferredSize(
-          preferredSize: Size.fromHeight(50),
+          preferredSize: const Size.fromHeight(50),
           child: Container(
             height: 50,
-            decoration: BoxDecoration(color: Colors.white),
+            decoration: const BoxDecoration(color: Colors.white),
             child: Row(
               children: [
-                SizedBox(
+                const SizedBox(
                   width: 20,
                 ),
                 Expanded(
                     child: Text(
                   AppLocalizations.of(context)!.totalPrice,
-                  style: TextStyle(fontSize: 18, fontWeight: FontWeight.w500),
+                  style: const TextStyle(fontSize: 18, fontWeight: FontWeight.w500),
                 )),
                 Expanded(
                     child: Text(totalPrice.toString(),
                         textAlign: TextAlign.end,
-                        style: TextStyle(
+                        style: const TextStyle(
                             fontSize: 18, fontWeight: FontWeight.w500))),
-                SizedBox(
+                const SizedBox(
                   width: 5,
                 ),
-                Text(
+                const Text(
                   "₽",
                   style: TextStyle(fontSize: 18),
                 ),
-                SizedBox(
+                const SizedBox(
                   width: 20,
                 )
               ],
@@ -89,7 +89,7 @@ class _BasketState extends State<Basket> {
                   Expanded(
                       child: ElevatedButton(
                           onPressed: () {
-                            AppData.of(context).OrderCurrentBasket();
+                            AppData.of(context).orderCurrentBasket();
                           },
                           child: Text(
                               AppLocalizations.of(context)!.payButtonText))),

@@ -1,9 +1,5 @@
-import 'dart:math';
-
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:intern_test_project/AppData.dart';
-import 'package:intern_test_project/Models/Product.dart';
 import 'package:intern_test_project/Models/ProductGroup.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:intern_test_project/Pages/Catalog/ProductGroupItem.dart';
@@ -27,21 +23,21 @@ class _CatalogState extends State<Catalog> {
   Widget build(BuildContext context) {
     if(AppData.of(context).productGroupsCache.isEmpty){
       finalGroups =
-          Future.delayed(Duration(seconds: 2), () {
+          Future.delayed(const Duration(seconds: 2), () {
             return ProductGroup.GeneratePseudoData();
           });
-      finalGroups?.then((value) => AppData.of(context).UpdateProductGroup(value));
+      finalGroups?.then((value) => AppData.of(context).updateProductGroup(value));
     }
     else {
       finalGroups =
-          Future.delayed(Duration(milliseconds: 0), () {
+          Future.delayed(const Duration(milliseconds: 0), () {
             return AppData.of(context).productGroupsCache;
           });
     }
 
     return Scaffold(
       appBar: AppBar(
-        title: Text("Wish Swish"),
+        title: const Text("Wish Swish"),
       ),
       body: SingleChildScrollView(
         child: Padding(
@@ -49,8 +45,8 @@ class _CatalogState extends State<Catalog> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text(AppLocalizations.of(context)!.catalog, textAlign: TextAlign.start, style: TextStyle(fontSize: 18, fontWeight: FontWeight.w500),),
-              SizedBox(
+              Text(AppLocalizations.of(context)!.catalog, textAlign: TextAlign.start, style: const TextStyle(fontSize: 18, fontWeight: FontWeight.w500),),
+              const SizedBox(
                 height: 20,
               ),
               FutureBuilder(
@@ -58,7 +54,7 @@ class _CatalogState extends State<Catalog> {
                   builder: (BuildContext context,
                       AsyncSnapshot<List<ProductGroup>> snapshot) {
                     if (!snapshot.hasData) {
-                      return Center(child: CircularProgressIndicator());
+                      return const Center(child: CircularProgressIndicator());
                     }
 
                     List<ProductGroupItem> groups = [];
@@ -68,7 +64,7 @@ class _CatalogState extends State<Catalog> {
                           group: snapshot.data![i],));
                     }
 
-                    return GridView.count(crossAxisCount: 2, children: groups, physics: NeverScrollableScrollPhysics(), shrinkWrap: true,);
+                    return GridView.count(crossAxisCount: 2, children: groups, physics: const NeverScrollableScrollPhysics(), shrinkWrap: true,);
                   })
             ],
           ),

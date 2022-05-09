@@ -15,8 +15,8 @@ class _ProductsListPageState extends State<ProductsListPage> {
   Widget build(BuildContext context) {
     Map<String, dynamic> args = Map<String, dynamic>.from(
         ModalRoute.of(context)?.settings.arguments as Map);
-    print(args["product-group"]);
-    Future<List<Product>> d = Future.delayed(Duration(seconds: 1), () {
+
+    Future<List<Product>> d = Future.delayed(const Duration(seconds: 1), () {
       return Product.GeneratePseudoData(args["product-group"]);
     });
 
@@ -42,7 +42,7 @@ class _ProductsListPageState extends State<ProductsListPage> {
                     SizedBox(
                         height: 100,
                         child: list[index]),
-                    SizedBox(height: 5,)
+                    const SizedBox(height: 5,)
                   ],
                 );
           });

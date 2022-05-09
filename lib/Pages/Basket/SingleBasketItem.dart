@@ -12,7 +12,7 @@ class SingleBasketItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      decoration: BoxDecoration(color: Colors.white10),
+      decoration: const BoxDecoration(color: Colors.white10),
       child: Row(
         mainAxisSize: MainAxisSize.min,
         children: [
@@ -43,7 +43,7 @@ class SingleBasketItem extends StatelessWidget {
                   child: Row(
                     children: [
                       Text(product.price.toString()),
-                      SizedBox(
+                      const SizedBox(
                         width: 5,
                       ),
                       Text(product.currency)
@@ -55,7 +55,7 @@ class SingleBasketItem extends StatelessWidget {
           ),
           Expanded(child: IconButton(
               onPressed: (){
-                AppData.of(context).RemoveFromCart(product);
+                AppData.of(context).removeFromCart(product);
               },
               icon: SvgPicture.asset("lib/assets/trash-icon.svg", width: 80,))),
         ],

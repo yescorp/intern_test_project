@@ -1,6 +1,4 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class Authorization extends StatefulWidget {
@@ -49,7 +47,7 @@ class _AuthorizationState extends State<Authorization> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              SizedBox(
+              const SizedBox(
                 height: 72,
               ),
               Center(
@@ -59,23 +57,23 @@ class _AuthorizationState extends State<Authorization> {
                   height: 112,
                 ),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 24,
               ),
               Center(
                   child: Text(
                 AppLocalizations.of(context)!.motto,
-                style: TextStyle(fontSize: 18, fontWeight: FontWeight.w500),
+                style: const TextStyle(fontSize: 18, fontWeight: FontWeight.w500),
               )),
-              SizedBox(
+              const SizedBox(
                 height: 100,
               ),
               Text(
                 AppLocalizations.of(context)!.loginHeader,
                 textAlign: TextAlign.start,
-                style: TextStyle(fontSize: 16, fontWeight: FontWeight.w500),
+                style: const TextStyle(fontSize: 16, fontWeight: FontWeight.w500),
               ),
-              SizedBox(height: 20,),
+              const SizedBox(height: 20,),
               TextFormField(
                 controller: email,
                 onChanged: (String val) {
@@ -93,12 +91,11 @@ class _AuthorizationState extends State<Authorization> {
                     hintText:
                         AppLocalizations.of(context)!.emailTexfieldPlaceholder),
               ),
-              SizedBox(height: 10,),
+              const SizedBox(height: 10,),
               TextFormField(
                 controller: password,
                 obscureText: true,
                 onChanged: (String? val) {
-                  print(validatePassword(val));
                   if (validateEmail(email.text) && validatePassword(val)) {
                     setState(() {
                       isButtonDisabled = false;
@@ -113,7 +110,7 @@ class _AuthorizationState extends State<Authorization> {
                     hintText: AppLocalizations.of(context)!
                         .passwordTextfieldPlaceholder),
               ),
-              SizedBox(height: 20,),
+              const SizedBox(height: 20,),
               Row(
                 children: [
                   Expanded(

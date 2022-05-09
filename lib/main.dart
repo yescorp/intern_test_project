@@ -26,15 +26,15 @@ class MyApp extends StatelessWidget {
             elevatedButtonTheme: ElevatedButtonThemeData(
                 style: ElevatedButton.styleFrom(
               onPrimary: Colors.white,
-              primary: Color.fromARGB(255, 12, 64, 166),
+              primary: const Color.fromARGB(255, 12, 64, 166),
             )),
             inputDecorationTheme: InputDecorationTheme(
                 border: OutlineInputBorder(
                     borderSide:
-                        BorderSide(color: Color.fromARGB(255, 171, 171, 171)),
+                        const BorderSide(color: Color.fromARGB(255, 171, 171, 171)),
                 borderRadius: BorderRadius.circular(8))),
             buttonTheme: const ButtonThemeData(disabledColor: Colors.blueGrey)),
-        localizationsDelegates: [
+        localizationsDelegates: const [
           AppLocalizations.delegate,
           GlobalMaterialLocalizations.delegate,
           GlobalWidgetsLocalizations.delegate,
@@ -47,12 +47,12 @@ class MyApp extends StatelessWidget {
         initialRoute: "/",
         routes: {
           "/": (context) {
-            return Authorization();
+            return const Authorization();
           },
-          "/main-page": (context) => MainPage(startIndex: 0,),
+          "/main-page": (context) => const MainPage(startIndex: 0,),
           "/products-list-page": (context) => const ProductsListPage(),
-          "/cart": (context) => MainPage(startIndex: 1,),
-          "/profile": (context) => MainPage(startIndex: 2)
+          "/cart": (context) => const MainPage(startIndex: 1,),
+          "/profile": (context) => const MainPage(startIndex: 2)
         },
       ),
     );

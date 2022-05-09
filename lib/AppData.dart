@@ -1,8 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:intern_test_project/Models/Order.dart';
-import 'package:intern_test_project/Pages/Catalog/ProductGroupItem.dart';
-
-import 'Models/OrderItem.dart';
 import 'Models/Product.dart';
 import 'Models/ProductGroup.dart';
 import 'Models/User.dart';
@@ -23,26 +20,26 @@ class _AppDataState extends State<AppDataWidget> {
 
   final User user = User(id: 0, name: "", surname: "", avatar: "");
 
-  void UpdateProductGroup(List<ProductGroup> groups){
+  void updateProductGroup(List<ProductGroup> groups){
     setState(() {
       productGroupsCache.clear();
       productGroupsCache.addAll(groups);
     });
   }
 
-  void AddToCart(Product product){
+  void addToCart(Product product){
     setState(() {
       basket.add(product);
     });
   }
 
-  void RemoveFromCart(Product product){
+  void removeFromCart(Product product){
     setState(() {
       basket.remove(product);
     });
   }
   
-  void OrderCurrentBasket(){
+  void orderCurrentBasket(){
     setState(() {
       List<Product> items = [];
       items.addAll(basket);

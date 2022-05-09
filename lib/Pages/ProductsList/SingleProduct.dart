@@ -12,7 +12,7 @@ class SingleProduct extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      decoration: BoxDecoration(color: Colors.black12),
+      decoration: const BoxDecoration(color: Colors.black12),
       child: Row(
         mainAxisSize: MainAxisSize.min,
         children: [
@@ -32,11 +32,11 @@ class SingleProduct extends StatelessWidget {
                   height: 40,
                   child: Row(
                     children: [
-                      Text(product.name, style: TextStyle(fontSize: 16, fontWeight: FontWeight.w500),),
-                      SizedBox(width: 5,),
+                      Text(product.name, style: const TextStyle(fontSize: 16, fontWeight: FontWeight.w500),),
+                      const SizedBox(width: 5,),
                       SvgPicture.asset("lib/assets/star-icon.svg"),
-                      SizedBox(width: 5,),
-                      Expanded(child: Text(product.rating.toStringAsPrecision(2), style: TextStyle(fontSize: 15, fontWeight: FontWeight.w500),))
+                      const SizedBox(width: 5,),
+                      Expanded(child: Text(product.rating.toStringAsPrecision(2), style: const TextStyle(fontSize: 15, fontWeight: FontWeight.w500),))
                     ],
                   ),
                 ),
@@ -44,11 +44,11 @@ class SingleProduct extends StatelessWidget {
                   height: 40,
                   child: Row(
                     children: [
-                      Text(product.price.toString(), style: TextStyle(fontSize: 18, fontWeight: FontWeight.w500),),
-                      SizedBox(
+                      Text(product.price.toString(), style: const TextStyle(fontSize: 18, fontWeight: FontWeight.w500),),
+                      const SizedBox(
                         width: 5,
                       ),
-                      Text(product.currency, style: TextStyle(fontSize: 18, fontWeight: FontWeight.w500))
+                      Text(product.currency, style: const TextStyle(fontSize: 18, fontWeight: FontWeight.w500))
                     ],
                   ),
                 )
@@ -57,7 +57,7 @@ class SingleProduct extends StatelessWidget {
           ),
           Expanded(child: IconButton(
               onPressed: (){
-                AppData.of(context).AddToCart(product);
+                AppData.of(context).addToCart(product);
                 Navigator.pop(context);
                 Navigator.pushReplacementNamed(context, "/cart");
               },
