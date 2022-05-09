@@ -4,15 +4,15 @@ import 'package:intern_test_project/Models/Product.dart';
 
 import 'package:intern_test_project/AppData.dart';
 
-class SingleProduct extends StatelessWidget {
+class SingleBasketItem extends StatelessWidget {
   final Product product;
 
-  const SingleProduct({required this.product, Key? key}) : super(key: key);
+  const SingleBasketItem({required this.product, Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      decoration: BoxDecoration(color: Colors.black12),
+      decoration: BoxDecoration(color: Colors.white10),
       child: Row(
         mainAxisSize: MainAxisSize.min,
         children: [
@@ -32,11 +32,9 @@ class SingleProduct extends StatelessWidget {
                   height: 40,
                   child: Row(
                     children: [
-                      Text(product.name, style: TextStyle(fontSize: 16, fontWeight: FontWeight.w500),),
-                      SizedBox(width: 5,),
+                      Text(product.name),
                       SvgPicture.asset("lib/assets/star-icon.svg"),
-                      SizedBox(width: 5,),
-                      Expanded(child: Text(product.rating.toStringAsPrecision(2), style: TextStyle(fontSize: 15, fontWeight: FontWeight.w500),))
+                      Expanded(child: Text(product.rating.toStringAsPrecision(2)))
                     ],
                   ),
                 ),
@@ -44,11 +42,11 @@ class SingleProduct extends StatelessWidget {
                   height: 40,
                   child: Row(
                     children: [
-                      Text(product.price.toString(), style: TextStyle(fontSize: 18, fontWeight: FontWeight.w500),),
+                      Text(product.price.toString()),
                       SizedBox(
                         width: 5,
                       ),
-                      Text(product.currency, style: TextStyle(fontSize: 18, fontWeight: FontWeight.w500))
+                      Text(product.currency)
                     ],
                   ),
                 )
@@ -57,11 +55,9 @@ class SingleProduct extends StatelessWidget {
           ),
           Expanded(child: IconButton(
               onPressed: (){
-                AppData.of(context).AddToCart(product);
-                Navigator.pop(context);
-                Navigator.pushReplacementNamed(context, "/cart");
+                AppData.of(context).RemoveFromCart(product);
               },
-              icon: SvgPicture.asset("lib/assets/shopping-cart-icon.svg", width: 80,))),
+              icon: SvgPicture.asset("lib/assets/trash-icon.svg", width: 80,))),
         ],
       ),
     );

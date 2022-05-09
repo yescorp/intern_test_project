@@ -29,6 +29,18 @@ class _AppDataState extends State<AppDataWidget> {
     });
   }
 
+  void AddToCart(Product product){
+    setState(() {
+      basket.add(product);
+    });
+  }
+
+  void RemoveFromCart(Product product){
+    setState(() {
+      basket.remove(product);
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return AppData(child: widget.child, state: this);

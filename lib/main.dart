@@ -49,8 +49,10 @@ class MyApp extends StatelessWidget {
           "/": (context) {
             return Authorization();
           },
-          "/main-page": (context) => const MainPage(),
-          "/products-list-page": (context) => const ProductsListPage()
+          "/main-page": (context) => MainPage(startIndex: 0,),
+          "/products-list-page": (context) => const ProductsListPage(),
+          "/cart": (context) => MainPage(startIndex: 1,),
+          "/profile": (context) => MainPage(startIndex: 2)
         },
       ),
     );

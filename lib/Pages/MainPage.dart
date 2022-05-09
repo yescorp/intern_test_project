@@ -5,7 +5,9 @@ import 'package:intern_test_project/Pages/Catalog/Catalog.dart';
 import 'package:intern_test_project/Pages/Profile/Profile.dart';
 
 class MainPage extends StatefulWidget {
-  const MainPage({Key? key}) : super(key: key);
+  int startIndex = 0;
+
+  MainPage({required this.startIndex, Key? key}) : super(key: key);
 
   @override
   _MainPageState createState() => _MainPageState();
@@ -13,6 +15,13 @@ class MainPage extends StatefulWidget {
 
 class _MainPageState extends State<MainPage> {
   int _selectedIndex = 0;
+
+  @override
+  void initState(){
+    super.initState();
+
+    _selectedIndex = widget.startIndex;
+  }
 
   static const List<Widget> _widgetOptions = <Widget>[
     Catalog(),
