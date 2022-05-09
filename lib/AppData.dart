@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:intern_test_project/Models/Order.dart';
 import 'package:intern_test_project/Pages/Catalog/ProductGroupItem.dart';
 
+import 'Models/OrderItem.dart';
 import 'Models/Product.dart';
 import 'Models/ProductGroup.dart';
 import 'Models/User.dart';
@@ -38,6 +39,16 @@ class _AppDataState extends State<AppDataWidget> {
   void RemoveFromCart(Product product){
     setState(() {
       basket.remove(product);
+    });
+  }
+  
+  void OrderCurrentBasket(){
+    setState(() {
+      List<Product> items = [];
+      items.addAll(basket);
+      
+      orders.add(Order(id: ++Order.idGenerator, number: Order.idGenerator, totalPrice: basket.map((e) => e.price).reduce((value, element) => value + element), orderDate: DateTime.now(), orderItems: items));
+      basket.clear();
     });
   }
 

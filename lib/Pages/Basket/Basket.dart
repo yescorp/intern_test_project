@@ -16,10 +16,17 @@ class _BasketState extends State<Basket> {
 
   @override
   Widget build(BuildContext context) {
-    totalPrice = AppData.of(context)
-        .basket
-        .map((e) => e.price)
-        .reduce((value, element) => value + element);
+
+    if(AppData.of(context)
+        .basket.isEmpty){
+      totalPrice = 0;
+    }
+    else{
+      totalPrice = AppData.of(context)
+          .basket
+          .map((e) => e.price)
+          .reduce((value, element) => value + element);
+    }
 
     return Scaffold(
       appBar: AppBar(
@@ -79,7 +86,13 @@ class _BasketState extends State<Basket> {
               padding: const EdgeInsets.all(20.0),
               child: Row(
                 children: [
-                  Expanded(child: ElevatedButton(onPressed: (){}, child: Text(AppLocalizations.of(context)!.payButtonText))),
+                  Expanded(
+                      child: ElevatedButton(
+                          onPressed: () {
+                            AppData.of(context).OrderCurrentBasket();
+                          },
+                          child: Text(
+                              AppLocalizations.of(context)!.payButtonText))),
                 ],
               ),
             )

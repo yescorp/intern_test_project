@@ -1,5 +1,6 @@
 import 'Product.dart';
 
+//unnecessary class
 class OrderItem{
   Product product;
   int count;

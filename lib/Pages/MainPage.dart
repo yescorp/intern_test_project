@@ -39,7 +39,14 @@ class _MainPageState extends State<MainPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Center(
-        child: _widgetOptions.elementAt(_selectedIndex),
+        child: IndexedStack(
+            index: _selectedIndex,
+            children: [
+
+              Catalog(),
+              Basket(),
+              Profile()
+            ]),
       ),
       bottomNavigationBar: BottomNavigationBar(
         items: [
