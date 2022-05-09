@@ -65,9 +65,7 @@ class _CatalogState extends State<Catalog> {
 
                     for (int i = 0; i < snapshot.data!.length; i++) {
                       groups.add(ProductGroupItem(
-                          imageUrl: snapshot.data![i].imageUrl,
-                          name: snapshot.data![i].name,
-                          count: snapshot.data![i].productCount));
+                          group: snapshot.data![i],));
                     }
 
                     return GridView.count(crossAxisCount: 2, children: groups, physics: NeverScrollableScrollPhysics(), shrinkWrap: true,);
