@@ -1,0 +1,16 @@
+{
+    "helloWorld": "Hello World!",
+    "@helloWorld": {
+      "description": "The conventional newborn programmer greeting"
+    },
+    "motto": "Сделай жизнь проще!",
+    "loginHeader": "Авторизация",
+    "emailTexfieldPlaceholder": "Введите email",
+    "passwordTextfieldPlaceholder": "Введите пароль",
+    "loginButtonText": "Войти",
+    "noInternetAppbarText": "Нет подключения",
+    "catalog": "Каталог",
+    "totalPrice": "Итого",
+    "payButtonText": "Оплатить",
+    "orderHistoryHeaderText": "История покупок"
+}

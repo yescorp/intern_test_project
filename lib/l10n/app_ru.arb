@@ -1,0 +1,15 @@
+{
+    "helloWorld": "Привет Мир!",
+    "motto": "Сделай жизнь проще!",
+    "loginHeader": "Авторизация",
+    "emailTexfieldPlaceholder": "Введите email",
+    "passwordTextfieldPlaceholder": "Введите пароль",
+    "loginButtonText": "Войти",
+    "noInternetAppbarText": "Нет подключения",
+    "catalog": "Каталог",
+    "totalPrice": "Итого",
+    "payButtonText": "Оплатить",
+    "orderHistoryHeaderText": "История покупок"
+
+
+}
