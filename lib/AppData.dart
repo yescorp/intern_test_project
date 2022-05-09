@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:intern_test_project/Models/Order.dart';
+import 'package:intern_test_project/Pages/Catalog/ProductGroupItem.dart';
 
 import 'Models/Product.dart';
+import 'Models/ProductGroup.dart';
 import 'Models/User.dart';
 
 class AppDataWidget extends StatefulWidget {
@@ -16,8 +18,17 @@ class AppDataWidget extends StatefulWidget {
 class _AppDataState extends State<AppDataWidget> {
   final List<Product> basket = [];
   final List<Order> orders = [];
+  final List<ProductGroup> productGroupsCache= [];
+
   final User user = User(id: 0, name: "", surname: "", avatar: "");
-  
+
+  void UpdateProductGroup(List<ProductGroup> groups){
+    setState(() {
+      productGroupsCache.clear();
+      productGroupsCache.addAll(groups);
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return AppData(child: widget.child, state: this);

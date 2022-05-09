@@ -67,6 +67,7 @@ flutter:
     - lib/assets/basket_icon.svg
     - lib/assets/profile_icon.svg
     - lib/assets/home_icon.svg
+    - lib/assets/star-icon.svg
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.
