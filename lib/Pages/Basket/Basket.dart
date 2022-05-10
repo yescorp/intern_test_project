@@ -28,9 +28,11 @@ class _BasketState extends State<Basket> {
           .reduce((value, element) => value + element);
     }
 
+    AppData.of(context).testConnection();
+
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Wish Swish"),
+        title: Text(AppData.of(context).appBarTitle),
         bottom: PreferredSize(
           preferredSize: const Size.fromHeight(50),
           child: Container(

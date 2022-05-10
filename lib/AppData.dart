@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:intern_test_project/Models/Order.dart';
 import 'Models/Product.dart';
@@ -17,8 +19,37 @@ class _AppDataState extends State<AppDataWidget> {
   final List<Product> basket = [];
   final List<Order> orders = [];
   final List<ProductGroup> productGroupsCache= [];
+  late bool isConnectionSuccessful;
+  String appBarTitle = "Wish Swish";
 
   final User user = User(id: 0, name: "", surname: "", avatar: "");
+
+  Future<void> testConnection() async {
+    try {
+      final response = await InternetAddress.lookup('www.google.com');
+
+      setState(() {
+        isConnectionSuccessful = response.isNotEmpty;
+
+        if(isConnectionSuccessful){
+          appBarTitle = "Wish Swish";
+        }
+        else {
+          appBarTitle = "Нет подключения";
+          Future.delayed(const Duration(seconds: 10), (){
+            testConnection();
+          });
+        }
+      });
+    } on SocketException {
+      setState(() {
+        isConnectionSuccessful = false;
+        appBarTitle = "Нет подключения";
+      });
+    }
+
+
+  }
 
   void updateProductGroup(List<ProductGroup> groups){
     setState(() {

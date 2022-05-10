@@ -21,6 +21,8 @@ class _CatalogState extends State<Catalog> {
 
   @override
   Widget build(BuildContext context) {
+    AppData.of(context).testConnection();
+
     if(AppData.of(context).productGroupsCache.isEmpty){
       finalGroups =
           Future.delayed(const Duration(seconds: 2), () {
@@ -37,7 +39,7 @@ class _CatalogState extends State<Catalog> {
 
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Wish Swish"),
+        title: Text(AppData.of(context).appBarTitle),
       ),
       body: SingleChildScrollView(
         child: Padding(
